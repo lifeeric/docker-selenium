@@ -1,0 +1,28 @@
+{
+  "name": "docker-selenium",
+  "version": "1.0.0",
+  "description": "This project sets up a Docker environment to run Selenium with Chrome in headless mode. It includes a Python script that navigates to a specified webpage and searches for the text \"Stories for you.\"",
+  "main": "index.js",
+  "dependencies": {
+    "acorn": "^8.12.1",
+    "acorn-walk": "^8.3.4",
+    "arg": "^4.1.3",
+    "commander": "^12.1.0",
+    "create-require": "^1.1.1",
+    "diff": "^4.0.2",
+    "dotenv": "^16.4.5",
+    "make-error": "^1.3.6",
+    "playwright": "^1.47.2",
+    "undici-types": "^6.19.8",
+    "v8-compile-cache-lib": "^3.0.1",
+    "yn": "^3.1.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.2",
+    "@types/node": "^22.7.3"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
