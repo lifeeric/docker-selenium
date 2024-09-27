@@ -36,7 +36,7 @@ async function loadCookies(context: BrowserContext) {
 const runner = async (target: string): Promise<void> => {
   console.log("[Started]");
 
-  const browser = await chromium.launch({ headless: false });
+  const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
     viewport: { width: 1920, height: 1080 },
   });
