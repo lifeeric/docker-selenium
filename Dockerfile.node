@@ -26,7 +26,6 @@ RUN apt-get update && apt-get install -y \
 
 # Copy the application code
 COPY .env .env
-COPY scrap.ts .
 COPY tsconfig.json .
 COPY package*.json .
 COPY playwright.config.ts .
@@ -37,5 +36,7 @@ RUN npm install
 RUN npx playwright install
 RUN npx playwright install-deps
 
+COPY scrap.ts .
+
 # Set the command to run your script
-ENTRYPOINT ["ts-node", "scrap.ts"]
+ENTRYPOINT ["npx","ts-node", "scrap.ts"]

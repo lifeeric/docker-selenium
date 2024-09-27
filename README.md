@@ -39,5 +39,5 @@ docker build -t dayforce.node . -f Dockerfile.node
 and run:
 
 ```sh
-docker run -it --rm  dayforce.node --target properties
+docker run -it --rm  dayforce.node run --target properties
 ```

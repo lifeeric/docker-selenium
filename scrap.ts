@@ -14,7 +14,15 @@ const COOKIES_FILE_PATH = "session/cookies-ts.json";
  *
  * @param context The context whose cookies should be saved.
  */
-async function saveCookies(context: BrowserContext, url: string) {
+async function saveCookies(
+  context: BrowserContext,
+  url: string
+): Promise<void> {
+  const dir = "session";
+
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
   const cookies = await context.cookies();
   fs.writeFileSync(
     COOKIES_FILE_PATH,
@@ -27,7 +35,7 @@ async function saveCookies(context: BrowserContext, url: string) {
  *
  * @param context The context whose cookies should be loaded.
  */
-async function loadCookies(context: BrowserContext) {
+async function loadCookies(context: BrowserContext): Promise<string> {
   const cookies = JSON.parse(fs.readFileSync(COOKIES_FILE_PATH, "utf-8"));
   await context.addCookies(cookies.cookies);
   return cookies.url;
