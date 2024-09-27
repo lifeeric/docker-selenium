@@ -5,11 +5,11 @@ This project sets up a Docker environment to run Selenium with Chrome in headles
 ## Build the image
 
 ```sh
-docker build -t selenium-python .
+docker build -t selenium-python . -f Dockerfile.python
 ```
 
 and run:
 
 ```sh
-docker run -it --rm --shm-size=2g selenium-python
+docker run -it --rm --shm-size=2g selenium-python --target types
 ```
