@@ -19,7 +19,7 @@ PASS=
 #### Build the image
 
 ```sh
-docker build -t selenium-python . -f Dockerfile.python
+docker build -t selenium-python . -f Dockerfile.selenium
 ```
 
 and run:
@@ -30,14 +30,30 @@ docker run -it --rm  selenium-python --target types
 
 # Playwright
 
+**NODE:**
+
 #### Build the image
 
 ```sh
-docker build -t dayforce.node . -f Dockerfile.node
+docker build -t dayforce.playwrightts . -f Dockerfile.playwright.ts
 ```
 
 and run:
 
 ```sh
-docker run -it --rm  dayforce.node run --target properties
+docker run -it --rm  dayforce.playwrightts run --target properties
+```
+
+**PY:**
+
+#### Build the image
+
+```sh
+docker build -t dayforce.playwrightpy . -f Dockerfile.playwright.py
+```
+
+and run:
+
+```sh
+docker run -it --rm  dayforce.playwrightpy run --target properties
 ```

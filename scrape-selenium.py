@@ -18,7 +18,7 @@ options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-gpu")  # Disable GPU acceleration
 options.add_argument("--window-size=1920,1080")  # Set a default window size
 
-SESSION_FILE_NAME = "session.json"
+SESSION_FILE_NAME = "session/session.json"
 
 
 def store_session(driver: webdriver.Chrome) -> None:
@@ -36,8 +36,8 @@ def store_session(driver: webdriver.Chrome) -> None:
     }
     os.makedirs("session", exist_ok=True)
 
-    with open(f"session/{SESSION_FILE_NAME}", "w") as file:
-        json.dump(cookies, file)
+    with open(SESSION_FILE_NAME, "w") as f:
+        json.dump(cookies, f)
 
     print("[Cookies saved]")
 
@@ -51,8 +51,8 @@ def load_session(driver: webdriver.Chrome) -> str:
     :return: The loaded cookies, as a dictionary.
     :rtype: returns a url
     """
-    with open(f"session/{SESSION_FILE_NAME}", "r") as file:
-        cookies = json.load(file)
+    with open(SESSION_FILE_NAME, "r") as f:
+        cookies = json.load(f)
 
     for cookie in cookies.get("cookies", []):
         driver.add_cookie(cookie)

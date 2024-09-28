@@ -11,7 +11,7 @@ RUN apt-get update && \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Selenium
-RUN pip install --no-cache-dir selenium webdriver-manager python-dotenv
+RUN pip install --no-cache-dir selenium python-dotenv
 
 # Download and install ChromeDriver
 RUN wget -q "https://storage.googleapis.com/chrome-for-testing-public/129.0.6668.70/linux64/chromedriver-linux64.zip" \
@@ -27,10 +27,10 @@ ENV DISPLAY=:99
 WORKDIR /app
 
 # Copy your Selenium test scripts or other files into the container
-COPY scrap.py scrap.py
-COPY session session
-COPY .env .env
+COPY scrape-selenium.py ./
+COPY session ./
+COPY .env ./
 
 # Default command to run Selenium tests
-ENTRYPOINT ["python", "scrap.py"]
+ENTRYPOINT ["python", "scrape-selenium.py"]
 
