@@ -55,5 +55,5 @@ docker build -t dayforce.playwrightpy . -f Dockerfile.playwright.py
 and run:
 
 ```sh
-docker run -it --rm  dayforce.playwrightpy run --target properties
+docker run -it --rm  dayforce.playwrightpy --target properties
 ```
